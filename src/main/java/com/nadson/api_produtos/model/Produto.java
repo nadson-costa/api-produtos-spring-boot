@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
+
 
 @Entity
 public class Produto {
@@ -11,8 +13,13 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Nome é obrigatório!")
     private String nome;
+
+    @Min(value = 0, message = "Preço deve ser positivo!")
     private double preco;
+
+    @Min(value = 0, message = "Estoque deve ser positivo!")
     private int estoque;
 
     public Produto(){}
@@ -34,6 +41,10 @@ public class Produto {
     }
     public int getEstoque(){
         return estoque;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public void setNome(String nome){
