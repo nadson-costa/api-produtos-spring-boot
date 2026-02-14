@@ -1,5 +1,6 @@
 package com.nadson.api_produtos.controller;
 
+import com.nadson.api_produtos.exception.ResourceNotFoundException;
 import com.nadson.api_produtos.model.Produto;
 import com.nadson.api_produtos.service.ProdutoService;
 import jakarta.validation.Valid;
@@ -27,7 +28,7 @@ public class ProdutoController {
     public ResponseEntity<Produto> buscar(@PathVariable Long id){
         return service.buscarPorId(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new ResourceNotFoundException("Produto com ID " + id + " não foi encontrado"));
     }
 
     @PostMapping
