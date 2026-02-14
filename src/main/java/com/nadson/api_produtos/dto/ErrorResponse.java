@@ -9,7 +9,7 @@ public class ErrorResponse {
     private String message;
     private String path;
 
-    public ErrorResponse(String timestamp, Integer status, String error, String message, String path){
+    public ErrorResponse(Integer status, String error, String message, String path){
         this.timestamp = LocalDateTime.now().toString();
         this.status = status;
         this.error = error;
@@ -17,7 +17,7 @@ public class ErrorResponse {
         this.path = path;
     }
 
-    public String getTimeStamp(){
+    public String getTimestamp(){
         return timestamp;
     }
     public Integer getStatus(){
