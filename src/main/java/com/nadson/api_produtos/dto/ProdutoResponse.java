@@ -9,6 +9,9 @@ public class ProdutoResponse {
     private int estoque;
     private LocalDateTime criadoEm;
 
+    private Long categoriaId;
+    private String categoriaNome;
+
     public ProdutoResponse(){}
 
     public ProdutoResponse(String nome, double preco, int estoque){
@@ -32,6 +35,12 @@ public class ProdutoResponse {
     public LocalDateTime getCriadoEm(){
         return criadoEm;
     }
+    public Long getCategoriaId(){
+        return categoriaId;
+    }
+    public String getCategoriaNome(){
+        return categoriaNome;
+    }
 
 
     public void setId(Long id){
@@ -48,6 +57,12 @@ public class ProdutoResponse {
     }
     public void setCriadoEm(LocalDateTime criadoEm){
         this.criadoEm = criadoEm;
+    }
+    public void setCategoriaId(Long categoriaId){
+        this.categoriaId = categoriaId;
+    }
+    public void setCategoriaNome(String categoriaNome){
+        this.categoriaNome = categoriaNome;
     }
 
 }

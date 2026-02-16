@@ -19,6 +19,10 @@ public class Produto {
     @Column(name="criado_em", updatable=false)
     private LocalDateTime criadoEm;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     public Produto(){}
 
     public Produto(String nome, double preco, int estoque, LocalDateTime criadoEm){
@@ -46,11 +50,11 @@ public class Produto {
         return estoque;
     }
     public LocalDateTime getCriadoEm(){return criadoEm;}
+    public Categoria getCategoria(){return categoria;}
 
     public void setId(Long id){
         this.id = id;
     }
-
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -60,4 +64,5 @@ public class Produto {
     public void setEstoque(int estoque){
         this.estoque = estoque;
     }
+    public void setCategoria(Categoria categoria){this.categoria = categoria;}
 }

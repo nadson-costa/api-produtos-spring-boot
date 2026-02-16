@@ -1,7 +1,9 @@
 package com.nadson.api_produtos.dto;
 
+import com.nadson.api_produtos.model.Categoria;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class ProdutoRequest {
 
@@ -13,6 +15,9 @@ public class ProdutoRequest {
 
     @Min(value = 0, message = "O estoque deve ser positivo!")
     private int estoque;
+
+    @NotNull(message = "Categoria é obrigatória!")
+    private Long categoriaId;
 
     public ProdutoRequest(){}
 
@@ -31,7 +36,13 @@ public class ProdutoRequest {
     public int getEstoque(){
         return estoque;
     }
+    public Long getCategoriaId(){
+        return categoriaId;
+    }
 
+    public void setCategoriaId(Long categoriaId){
+        this.categoriaId = categoriaId;
+    }
     public void setNome(String nome){
         this.nome = nome;
     }
