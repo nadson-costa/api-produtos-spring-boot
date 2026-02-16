@@ -1,36 +1,20 @@
-package com.nadson.api_produtos.model;
-
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+package com.nadson.api_produtos.dto;
 
 import java.time.LocalDateTime;
 
-
-@Entity
-public class Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProdutoResponse {
     private Long id;
-
     private String nome;
     private double preco;
     private int estoque;
-
-    @Column(name="criado_em", updatable=false)
     private LocalDateTime criadoEm;
 
-    public Produto(){}
+    public ProdutoResponse(){}
 
-    public Produto(String nome, double preco, int estoque, LocalDateTime criadoEm){
+    public ProdutoResponse(String nome, double preco, int estoque){
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
-        this.criadoEm = LocalDateTime.now();
-    }
-
-    @PrePersist
-    protected void onCreate(){
-        this.criadoEm = LocalDateTime.now();
     }
 
     public Long getId(){
@@ -45,12 +29,14 @@ public class Produto {
     public int getEstoque(){
         return estoque;
     }
-    public LocalDateTime getCriadoEm(){return criadoEm;}
+    public LocalDateTime getCriadoEm(){
+        return criadoEm;
+    }
+
 
     public void setId(Long id){
         this.id = id;
     }
-
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -60,4 +46,8 @@ public class Produto {
     public void setEstoque(int estoque){
         this.estoque = estoque;
     }
+    public void setCriadoEm(LocalDateTime criadoEm){
+        this.criadoEm = criadoEm;
+    }
+
 }
