@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
     ){
         ErrorResponse errorResponse = new ErrorResponse(
                 500,
-                "Internal server erro",
+                "Internal server error",
                 ex.getMessage(),
                 request.getDescription(false).replace("uri=", "")
         );
