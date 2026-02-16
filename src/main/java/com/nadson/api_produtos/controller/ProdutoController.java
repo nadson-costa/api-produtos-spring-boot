@@ -38,7 +38,7 @@ public class ProdutoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Produto> atualizar(
-            @PathVariable Long id, @RequestBody Produto produto
+            @PathVariable Long id, @Valid @RequestBody Produto produto
     ){
         return service.buscarPorId(id)
                 .map(p -> {
