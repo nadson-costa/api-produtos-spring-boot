@@ -65,4 +65,5 @@ public class Produto {
         this.estoque = estoque;
     }
     public void setCategoria(Categoria categoria){this.categoria = categoria;}
+    public void setCriadoEm(LocalDateTime criadoEm){this.criadoEm = criadoEm;}
 }
